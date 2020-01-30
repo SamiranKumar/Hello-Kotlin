@@ -16,7 +16,7 @@ class CustomAdapter(
     internal val VIEW_TYPE_ONE = 1
     internal val VIEW_TYPE_TWO = 2
 
-    private inner class ViewHolder1 internal constructor(itemView: View) :
+    private inner class ViewHolder1  constructor(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
         internal var tvUserName: TextView
