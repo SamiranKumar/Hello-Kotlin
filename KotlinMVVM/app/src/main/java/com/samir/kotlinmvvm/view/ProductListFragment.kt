@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.lifecycle.Observer
-import com.samir.kotlinmvvm.ProductFamily
-import com.samir.kotlinmvvm.ProductViewModel
+
 import com.samir.kotlinmvvm.R
+import com.samir.kotlinmvvm.model.ProductFamily
+import com.samir.kotlinmvvm.viewmodel.ProductViewModel
 
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -36,6 +37,7 @@ class ProductListFragment : androidx.fragment.app.Fragment() {
 
         productListModel.getProducts()
         productListModel.listOfProducts.observe(this, Observer(function = fun(productList: List<ProductFamily>?) {
+
             productList?.let {
 
                 var productListAdapter: ProductListAdapter = ProductListAdapter(productList)

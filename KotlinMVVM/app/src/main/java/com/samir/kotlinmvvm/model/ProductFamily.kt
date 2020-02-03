@@ -1,4 +1,4 @@
-package com.samir.kotlinmvvm
+package com.samir.kotlinmvvm.model
 
 import java.io.Serializable
 

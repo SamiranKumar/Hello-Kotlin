@@ -5,8 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.samir.kotlinmvvm.ProductFamily
+
 import com.samir.kotlinmvvm.R
+import com.samir.kotlinmvvm.model.ProductFamily
 
 
 class ProductDetailFragment : androidx.fragment.app.Fragment() {

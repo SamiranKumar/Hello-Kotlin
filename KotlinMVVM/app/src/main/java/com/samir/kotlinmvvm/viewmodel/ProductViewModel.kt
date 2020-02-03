@@ -1,7 +1,9 @@
-package com.samir.kotlinmvvm
+package com.samir.kotlinmvvm.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.samir.kotlinmvvm.model.ProductFamily
+import com.samir.kotlinmvvm.repository.DataRepository
 import org.koin.standalone.KoinComponent
 
 

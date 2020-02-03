@@ -1,9 +1,9 @@
 package com.samir.kotlinmvvm
 
 import com.itkacher.okhttpprofiler.OkHttpProfilerInterceptor
-import com.samir.kotlinmvvm.BuildConfig
+import com.samir.kotlinmvvm.repository.DataRepository
+import com.samir.kotlinmvvm.viewmodel.ProductViewModel
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 import retrofit2.Retrofit

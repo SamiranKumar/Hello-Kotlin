@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.samir.kotlinmvvm.ProductFamily
 import com.samir.kotlinmvvm.R
+import com.samir.kotlinmvvm.model.ProductFamily
 
 
 class ProductDetailAdapter(private val productFamily: ProductFamily) :RecyclerView.Adapter<ProductDetailAdapter.ViewHolder>() {
@@ -27,7 +27,10 @@ class ProductDetailAdapter(private val productFamily: ProductFamily) :RecyclerVi
         viewHolder.name?.text = productFamily.products[position].name
         viewHolder.count?.text = productFamily.products[position].description
         val imageUrl = "http://mobcategories.s3-website-eu-west-1.amazonaws.com"+productFamily.products[position].url
-        Glide.with(viewHolder.imageView.context).load(imageUrl).into(viewHolder.imageView)
+
+        Glide.with(viewHolder.imageView.context)
+            .load(imageUrl)
+            .into(viewHolder.imageView)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

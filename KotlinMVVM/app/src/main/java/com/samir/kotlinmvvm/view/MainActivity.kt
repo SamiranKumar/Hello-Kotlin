@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
                     return tagName + ":[" + super.createStackElementTag(element) + ":" + element.lineNumber + "]"
                 }
             })
-        } else { //
         }
+
         Timber.d("MainActivity")
         supportFragmentManager.beginTransaction()
             .replace(R.id.frag_container, ProductListFragment()).commit()

@@ -1,5 +1,7 @@
-package com.samir.kotlinmvvm
+package com.samir.kotlinmvvm.repository
 
+import com.samir.kotlinmvvm.NetWorkApi
+import com.samir.kotlinmvvm.model.ProductFamily
 import retrofit2.Call
 import retrofit2.Response
 
@@ -9,6 +11,7 @@ class DataRepository(val netWorkApi: NetWorkApi) {
         netWorkApi.getProducts().enqueue(object : retrofit2.Callback<List<ProductFamily>> {
             override fun onResponse(call: Call<List<ProductFamily>>, response: Response<List<ProductFamily>>) {
                 onProductData.onSuccess((response.body() as List<ProductFamily>))
+
             }
 
             override fun onFailure(call: Call<List<ProductFamily>>, t: Throwable) {
