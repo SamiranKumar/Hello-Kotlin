@@ -1,27 +1,36 @@
 package com.skh.mvvm.viewModel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.skh.mvvm.model.DataModel
+import androidx.lifecycle.viewModelScope
+import com.skh.mvvm.network.ApiState
+import com.skh.mvvm.network.repository.MainRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 /**
-Created by Samiran Kumar on 13,September,2022
+Created by Samiran Kumar on 20,September,2022
  **/
-class MainViewModel : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(private val mainRepository: MainRepository) : ViewModel() {
 
-    // Create the model which contains data for our UI
-    private val model = DataModel("Text from MainViewModel!")
+    private val postStateFlow: MutableStateFlow<ApiState> = MutableStateFlow(ApiState.Empty)
 
-    // Create MutableLiveData which MainFragment can subscribe to
-    // When this data changes, it triggers the UI to do an update
-    val uiTextLiveData = MutableLiveData<String>()
+    val _postStateFlow: StateFlow<ApiState> = postStateFlow
 
+    fun getPost() = viewModelScope.launch {
+        postStateFlow.value = ApiState.Loading
 
-    // Get the updated text from our model and post the value to MainFragment
-    fun getUpdatedText() {
-        val updatedText = model.textForUI
-        uiTextLiveData.postValue(updatedText)
+        mainRepository.getPost()
+            .catch { e ->
+                postStateFlow.value = ApiState.Failure(e)
+            }.collect { data ->
+                postStateFlow.value = ApiState.Success(data)
+            }
     }
-
 }
