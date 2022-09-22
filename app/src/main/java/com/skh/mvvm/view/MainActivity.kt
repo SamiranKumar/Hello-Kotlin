@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.skh.mvvm.databinding.ActivityMainBinding
 import com.skh.mvvm.network.ApiState
 import com.skh.mvvm.viewModel.MainViewModel
-import com.skh.mvvm.viewModel.PostAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

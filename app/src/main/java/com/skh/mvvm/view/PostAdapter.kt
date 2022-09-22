@@ -1,6 +1,5 @@
-package com.skh.mvvm.viewModel
+package com.skh.mvvm.view
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

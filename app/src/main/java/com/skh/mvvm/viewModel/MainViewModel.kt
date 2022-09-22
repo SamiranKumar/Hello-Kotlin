@@ -23,6 +23,7 @@ class MainViewModel @Inject constructor(private val mainRepository: MainReposito
 
     val _postStateFlow: StateFlow<ApiState> = postStateFlow
 
+
     fun getPost() = viewModelScope.launch {
         postStateFlow.value = ApiState.Loading
 
